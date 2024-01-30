@@ -7,6 +7,10 @@
 
         <h2>{{ $post->title }}</h2>
 
+        <p>
+            Categoria: {{$post->category ? $post->category->name : "Nessuna Categoria"}}
+        </p>
+
         <div class="mt-4">
             Data: {{ $post->created_at}}
         </div>
