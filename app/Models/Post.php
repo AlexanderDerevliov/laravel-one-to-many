@@ -13,7 +13,7 @@ class Post extends Model
     use HasFactory;
     use SoftDeletes;
 
-    protected $fillable = ['title', 'content', 'slug'];
+    protected $fillable = ['title', 'content', 'slug', 'category_id'];
 
     public function seTitleAttribute($_title) {
 

@@ -25,7 +25,8 @@ class StorePostRequest extends FormRequest
     {
         return [
             'title' => ['required', 'max:200', 'min:5', 'unique:posts'],
-            'content' => ['nullable']
+            'content' => ['nullable'],
+            'category_id' => ['nullable', 'numeric']
         ];
     }
 }
