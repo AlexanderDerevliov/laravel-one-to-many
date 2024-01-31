@@ -38,6 +38,17 @@
                 <textarea class="form-control" id="content" rows="3" name="content"> {{ old('content') }}</textarea>
             </div>
 
+
+            <div class="mb-3 d-block">
+                <label for="category">Seleziona Categoria: </label>
+                <select class="form-select" name="category_id" id="category">
+                    <option value="">Nessuna Categoria</option>
+                    @foreach ($categories as $category)
+                         <option value="{{$category->id}}">{{$category->name}}</option>                        
+                    @endforeach
+                </select>
+            </div>
+
             <button class="btn btn-primary" type="submit">Salva</button>
         </form>
 
