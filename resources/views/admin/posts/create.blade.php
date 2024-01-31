@@ -39,12 +39,12 @@
             </div>
 
 
-            <div class="mb-3 d-block">
+            <div class="mb-3 has-validation">
                 <label for="category">Seleziona Categoria: </label>
-                <select class="form-select" name="category_id" id="category">
-                    <option value="">Nessuna Categoria</option>
+                <select class="form-select" @error('title') is-invalid @enderror" name="category_id" id="category">
+                    <option @selected(!old('category_id')) value="">Nessuna Categoria</option>
                     @foreach ($categories as $category)
-                         <option value="{{$category->id}}">{{$category->name}}</option>                        
+                         <option @selected(old('category_id') == $category->id) value="{{$category->id}}">{{$category->name}}</option>                        
                     @endforeach
                 </select>
             </div>

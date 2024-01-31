@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rules\Exists;
 
 class StorePostRequest extends FormRequest
 {
@@ -26,7 +27,7 @@ class StorePostRequest extends FormRequest
         return [
             'title' => ['required', 'max:200', 'min:5', 'unique:posts'],
             'content' => ['nullable'],
-            'category_id' => ['nullable', 'numeric']
+            'category_id' => ['nullable', 'numeric', 'exists:categories,id']
         ];
     }
 }

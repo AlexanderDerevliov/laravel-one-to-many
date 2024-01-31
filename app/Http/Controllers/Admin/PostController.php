@@ -72,7 +72,8 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        return view('admin.posts.edit', compact('post'));
+        $categories = Category::all();
+        return view('admin.posts.edit', compact('post', 'categories'));
     }
 
     /**
@@ -100,6 +101,6 @@ class PostController extends Controller
     {
         $post->delete();
 
-        return redirect()->route('admin.posts.index')->with('message', " Brava Pachuli il tuo Post è stato cancellato con successo!");
+        return redirect()->route('admin.posts.index')->with('message', " Ottimo! Il tuo Post è stato cancellato con successo!");
     }
 }
